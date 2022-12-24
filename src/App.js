@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import CartProvider from "./Context/CartProvider";
+import Navbar from "./Components/navbar/Navbar";
+import Info_card from "./Components/Info_card";
+import Menu from "./Components/menu/Menu";
+import Mycart from "./Components/cart/Mycart";
+import styles from "./App.module.css";
+import Footer from "./Components/footer/Footer";
 
 function App() {
+  const [cartStatus, changeCartStatus] = useState(false);
+
+  if (cartStatus == true) {
+    document.body.style.overflowY = "hidden";
+  } else {
+    document.body.style.overflowY = "auto";
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartProvider>
+      <div className={styles.main}>
+        <Navbar cart_ch={changeCartStatus}></Navbar>
+        <Info_card></Info_card>
+        <Menu></Menu>
+        {cartStatus && <Mycart cart_ch={changeCartStatus}></Mycart>}
+      </div>
+      <Footer></Footer>
+    </CartProvider>
   );
 }
 

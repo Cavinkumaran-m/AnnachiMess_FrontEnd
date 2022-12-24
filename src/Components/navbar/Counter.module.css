@@ -1,0 +1,15 @@
+.counter {
+  float: left;
+  padding: 0%;
+}
+
+.counter :hover {
+  background-color: #b03b17;
+}
+.counter h3 {
+  margin: 0;
+  margin-left: 15px;
+  padding: 0 0.5rem 0 0.5rem;
+  background-color: #b03b17;
+  border-radius: 50px;
+}
