@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartProvider from "./Context/CartProvider";
 import Navbar from "./Components/navbar/Navbar";
 import Info_card from "./Components/Info_card";
@@ -9,6 +9,9 @@ import Footer from "./Components/footer/Footer";
 
 function App() {
   const [cartStatus, changeCartStatus] = useState(false);
+  useEffect(() => {
+    document.title = "Annachi Mess";
+  }, []);
 
   if (cartStatus == true) {
     document.body.style.overflowY = "hidden";
