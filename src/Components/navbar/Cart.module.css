@@ -15,18 +15,15 @@
   border-radius: 50px;
 }
 
-/* .butt_cont {
-  height: 100%;
-  width: 100%;
-} */
-
 .butt_cont :hover {
   background-color: #3d1401;
   cursor: pointer;
 }
 
-.cart h3 {
+.cart span {
   float: left;
+  font-size: large;
+  font-weight: bold;
   margin: 0;
   margin-left: 15px;
 }
@@ -50,5 +47,15 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .cart span {
+    font-size: inherit;
+    margin-left: 5px;
+  }
+  .cart img {
+    height: 15px;
   }
 }

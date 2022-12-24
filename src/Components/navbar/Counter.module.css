@@ -13,3 +13,9 @@
   background-color: #b03b17;
   border-radius: 50px;
 }
+
+@media (max-width: 480px) {
+  .counter h3 {
+    margin-left: 5px;
+  }
+}

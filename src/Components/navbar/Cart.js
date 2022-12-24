@@ -34,7 +34,7 @@ const Cart = (props) => {
     <div className={butt_classes}>
       <button className={style.cart} onClick={OnClick}>
         <img src={cart_img} />
-        <h3>Your Cart</h3>
+        <span>Your Cart</span>
         <Counter></Counter>
       </button>
     </div>

@@ -39,12 +39,12 @@
   }
 }
 
-@media (max-width: 530px) {
+@media (max-width: 480px) {
   .head_cont p {
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
     display: flex;
-    margin-top: 15px;
+    margin-top: 20px;
     width: 100%;
     padding: 0;
   }
