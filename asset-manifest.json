@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React_Annachi_Mess/static/css/main.54bdc474.css",
+    "main.js": "/React_Annachi_Mess/static/js/main.629fb924.js",
+    "static/media/bg3.png": "/React_Annachi_Mess/static/media/bg3.1bf9af89eb73acc95f2c.png",
+    "static/media/cart3.png": "/React_Annachi_Mess/static/media/cart3.25c8f2f04c70eb2fc0ab.png",
+    "index.html": "/React_Annachi_Mess/index.html",
+    "main.54bdc474.css.map": "/React_Annachi_Mess/static/css/main.54bdc474.css.map",
+    "main.629fb924.js.map": "/React_Annachi_Mess/static/js/main.629fb924.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54bdc474.css",
+    "static/js/main.629fb924.js"
+  ]
+}
