@@ -66,3 +66,22 @@
   cursor: pointer;
   background-color: #3d1401;
 }
+
+@media (max-width: 480px) {
+  .left_cont {
+    width: 48%;
+    padding: 1% 0 1% 2%;
+  }
+
+  .right_cont {
+    width: 50%;
+    /* display: flex;
+    flex-direction: column-reverse; */
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .right_cont li {
+    margin-right: 5px;
+  }
+}
