@@ -1,0 +1,23 @@
+.info_card {
+  width: 50%;
+  margin: 160px 25% 0 25%;
+  height: 100%;
+  background-color: #323132;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: white;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  font-weight: bold;
+}
+
+.info_card p {
+  margin-top: 30px;
+}
+
+@media (max-width: 767px) {
+  .info_card {
+    width: 90%;
+    margin: 100px 5% 0 5%;
+  }
+}
