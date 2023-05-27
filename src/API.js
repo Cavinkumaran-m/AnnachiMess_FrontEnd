@@ -1,3 +1,3 @@
-const api = "http://annachimess.azurewebsites.net";
+const api = "http://annachimesswebapp.azurewebsites.net";
 
 export default api;
