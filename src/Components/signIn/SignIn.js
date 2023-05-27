@@ -3,22 +3,30 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../Store/Action";
+import api from "../../API";
 
 const SignIn = () => {
+  const apiLogin = api + "/login";
+  const apigetData = api + "/getData";
+  const apiRegister = api + "/register";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:8080/login", { credentials: "include" })
+    fetch(apiLogin, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((response) => {
         // console.log(response);
         if (response.loggedIn) {
-          fetch("http://localhost:8080/getData", { credentials: "include" })
+          fetch(apigetData, {
+            credentials: "include",
+          })
             .then((res) => {
               return res.json();
             })
             .then((parsedData) => {
-              // console.log("=====" + parsedData);
+              console.log("UseEffect : " + parsedData);
               dispatch(
                 logIn(
                   parsedData["orders"],
@@ -55,7 +63,7 @@ const SignIn = () => {
       alert("Enter Passwords must match");
       return;
     }
-    fetch("http://localhost:8080/register", {
+    fetch(apiRegister, {
       method: "POST",
       headers: { "content-Type": "application/json" },
       body: JSON.stringify({
@@ -78,7 +86,7 @@ const SignIn = () => {
   function SignInHandler() {
     let emailVal = document.getElementById("_mail").value;
     let passwordVal = document.getElementById("_pwd").value;
-    fetch("http://localhost:8080/login", {
+    fetch(apiLogin, {
       method: "POST",
       headers: { "content-Type": "application/json" },
       body: JSON.stringify({
@@ -90,11 +98,12 @@ const SignIn = () => {
       .then((response) => response.json())
       .then((response) => {
         if (response["message"] === "login success") {
-          fetch("http://localhost:8080/getData", { credentials: "include" })
+          fetch(apigetData, { credentials: "include" })
             .then((res) => {
               return res.json();
             })
             .then((parsedData) => {
+              console.log(parsedData);
               dispatch(
                 logIn(
                   parsedData["orders"],
@@ -107,7 +116,7 @@ const SignIn = () => {
         } else if (response["message"] === "login unsuccess") {
           alert("Incorrect Password");
         } else if (response["message"] === "No user found") {
-          alert("No such User registered");
+          alert("No such User Registered");
         }
       })
       .catch((error) => console.log(error));

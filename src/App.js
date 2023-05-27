@@ -8,6 +8,7 @@ import styles from "./App.module.css";
 import Footer from "./Components/footer/Footer";
 import SignIn from "./Components/signIn/SignIn";
 import { useSelector } from "react-redux";
+import api from "./API";
 
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 
@@ -17,6 +18,7 @@ function App() {
   // const [loggedIn, changeLoggedIn] = useState(loggedInStatus);
   useEffect(() => {
     document.title = "Annachi Mess";
+    console.log("Api address : " + api);
   }, []);
 
   if (cartStatus === true) {

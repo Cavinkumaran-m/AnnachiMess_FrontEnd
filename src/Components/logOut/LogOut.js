@@ -2,12 +2,14 @@ import style from "./LogOut.module.css";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../Store/Action";
 import { useDispatch } from "react-redux";
+import api from "../../API";
 
 const LogOut = () => {
+  const API = api + "/logout";
   let navigate = useNavigate();
   const dispatch = useDispatch();
   function logOutHandler() {
-    fetch("http://localhost:8080/logout", { credentials: "include" })
+    fetch(API, { credentials: "include" })
       .then((res) => res.json())
       .then((res) => {
         if (res.message === "logout success") {

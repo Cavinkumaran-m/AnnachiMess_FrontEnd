@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../Store/Action";
+import api from "../../API";
+import { useSelector } from "react-redux";
 
 const Menu_data = [
   {
@@ -33,32 +35,39 @@ const Menu_data = [
 ];
 
 const Menu = () => {
+  const isFetched = useSelector((store) => store.loggedIn);
+  const apiLogin = api + "/login";
+  const apigetData = api + "/getData";
   let navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
-    fetch("http://localhost:8080/login", { credentials: "include" })
-      .then((response) => response.json())
-      .then((response) => {
-        // console.log(response);
-        if (!response.loggedIn) {
-          navigate("/");
-        } else {
-          fetch("http://localhost:8080/getData", { credentials: "include" })
-            .then((res) => {
-              return res.json();
+    if (!isFetched) {
+      fetch(apiLogin, { credentials: "include" })
+        .then((response) => response.json())
+        .then((response) => {
+          if (!response.loggedIn) {
+            navigate("/");
+          } else {
+            fetch(apigetData, {
+              credentials: "include",
             })
-            .then((parsedData) => {
-              dispatch(
-                logIn(
-                  parsedData["orders"],
-                  parsedData["totalAmount"],
-                  parsedData["totalItems"]
-                )
-              );
-              navigate("/home");
-            });
-        }
-      });
+              .then((res) => {
+                return res.json();
+              })
+              .then((parsedData) => {
+                console.log("home : " + parsedData);
+                dispatch(
+                  logIn(
+                    parsedData["orders"],
+                    parsedData["totalAmount"],
+                    parsedData["totalItems"]
+                  )
+                );
+                navigate("/home");
+              });
+          }
+        });
+    }
   }, []);
 
   return (
