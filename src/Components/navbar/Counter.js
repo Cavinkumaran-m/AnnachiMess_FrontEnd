@@ -1,6 +1,5 @@
 import style from "./Counter.module.css";
 import { useSelector } from "react-redux";
-import useState from "react";
 
 const Counter = () => {
   const numberOfItems = useSelector((store) => store.totalItems);

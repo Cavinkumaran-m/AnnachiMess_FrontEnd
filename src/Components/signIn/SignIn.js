@@ -38,7 +38,7 @@ const SignIn = () => {
             });
         }
       });
-  }, []);
+  });
 
   const [isSignIn, changeSignIn] = useState(true);
 

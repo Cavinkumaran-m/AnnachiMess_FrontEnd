@@ -68,7 +68,7 @@ const Menu = () => {
           }
         });
     }
-  }, []);
+  });
 
   return (
     <div className={style.menu_card}>

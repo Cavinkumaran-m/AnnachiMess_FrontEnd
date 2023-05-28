@@ -10,7 +10,7 @@ import SignIn from "./Components/signIn/SignIn";
 import { useSelector } from "react-redux";
 import api from "./API";
 
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   let loggedInStatus = useSelector((store) => store.loggedIn);
@@ -46,7 +46,7 @@ function App() {
         <hr style={{ color: "transparent", border: "0" }}></hr>
       </div>
 
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </>
   );
 }
