@@ -55,7 +55,7 @@ const Menu = () => {
                 return res.json();
               })
               .then((parsedData) => {
-                console.log("home : " + parsedData);
+                // console.log("home : " + parsedData);
                 dispatch(
                   logIn(
                     parsedData["orders"],

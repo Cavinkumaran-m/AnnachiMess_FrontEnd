@@ -26,7 +26,7 @@ const SignIn = () => {
               return res.json();
             })
             .then((parsedData) => {
-              console.log("UseEffect : " + parsedData);
+              // console.log("UseEffect : " + parsedData);
               dispatch(
                 logIn(
                   parsedData["orders"],
@@ -103,7 +103,7 @@ const SignIn = () => {
               return res.json();
             })
             .then((parsedData) => {
-              console.log(parsedData);
+              // console.log(parsedData);
               dispatch(
                 logIn(
                   parsedData["orders"],
