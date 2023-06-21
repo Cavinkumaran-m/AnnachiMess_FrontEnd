@@ -2,10 +2,9 @@ import React from "react";
 import Order from "./Order";
 import style from "./Mycart.module.css";
 import { useSelector } from "react-redux";
-import api from "../../API";
+import { fetchUpdateOrder } from "../APIs/API_fetches";
 
 const Mycart = (props) => {
-  const apiUpdateOrder = api + "/updateOrder";
   let Orders = useSelector((Store) => Store.orders);
   let totalAmount = useSelector((Store) => Store.totalAmount);
   let totalItems = useSelector((Store) => Store.totalItems);
@@ -14,22 +13,7 @@ const Mycart = (props) => {
   };
 
   const UpdateOrders = () => {
-    fetch(apiUpdateOrder, {
-      credentials: "include",
-      method: "POST",
-      headers: { "content-Type": "application/json" },
-      body: JSON.stringify({
-        orders: Orders,
-        Amount: totalAmount,
-        Item: totalItems,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res["message"] === "success") {
-          alert("Your order has been placed successfully");
-        }
-      });
+    fetchUpdateOrder(Orders, totalAmount, totalItems);
   };
   return (
     <React.Fragment>

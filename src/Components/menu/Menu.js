@@ -2,10 +2,9 @@ import style from "./Menu.module.css";
 import Item from "./Item";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { fetchLogIn } from "../APIs/API_fetches";
+import { useSelector, useDispatch } from "react-redux";
 import { logIn } from "../../Store/Action";
-import api from "../../API";
-import { useSelector } from "react-redux";
 
 const Menu_data = [
   {
@@ -36,37 +35,19 @@ const Menu_data = [
 
 const Menu = () => {
   const isFetched = useSelector((store) => store.loggedIn);
-  const apiLogin = api + "/login";
-  const apigetData = api + "/getData";
+
+  let dispatch = useDispatch();
   let navigate = useNavigate();
-  const dispatch = useDispatch();
   useEffect(() => {
     if (!isFetched) {
-      fetch(apiLogin, { credentials: "include" })
-        .then((response) => response.json())
-        .then((response) => {
-          if (!response.loggedIn) {
-            navigate("/");
-          } else {
-            fetch(apigetData, {
-              credentials: "include",
-            })
-              .then((res) => {
-                return res.json();
-              })
-              .then((parsedData) => {
-                // console.log("home : " + parsedData);
-                dispatch(
-                  logIn(
-                    parsedData["orders"],
-                    parsedData["totalAmount"],
-                    parsedData["totalItems"]
-                  )
-                );
-                navigate("/home");
-              });
-          }
-        });
+      fetchLogIn().then((reply) => {
+        if (reply === false) {
+          navigate("/");
+        } else {
+          dispatch(logIn(reply[0], reply[1], reply[2]));
+          navigate("/home");
+        }
+      });
     }
   });
 

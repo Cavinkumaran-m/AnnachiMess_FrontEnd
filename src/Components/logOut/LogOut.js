@@ -1,23 +1,21 @@
 import style from "./LogOut.module.css";
 import { useNavigate } from "react-router-dom";
+import { fetchLogOut } from "../APIs/API_fetches";
 import { logOut } from "../../Store/Action";
 import { useDispatch } from "react-redux";
-import api from "../../API";
 
 const LogOut = () => {
-  const API = api + "/logout";
+  let dispatch = useDispatch();
   let navigate = useNavigate();
-  const dispatch = useDispatch();
   function logOutHandler() {
-    fetch(API, { credentials: "include" })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.message === "logout success") {
-          dispatch(logOut());
-          navigate("/");
-        }
-      });
+    fetchLogOut().then((reply) => {
+      if (reply) {
+        dispatch(logOut());
+        navigate("/");
+      }
+    });
   }
+
   return (
     <button className={style.logoutButt} onClick={logOutHandler}>
       Log out

@@ -8,7 +8,7 @@ import styles from "./App.module.css";
 import Footer from "./Components/footer/Footer";
 import SignIn from "./Components/signIn/SignIn";
 import { useSelector } from "react-redux";
-import api from "./API";
+import api from "./Components/APIs/API_fetches";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
