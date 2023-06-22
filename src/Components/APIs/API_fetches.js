@@ -70,12 +70,14 @@ const fetchLogInPost = async (emailVal, passwordVal) => {
         return fetchGetData().then((reply) => {
           if (reply.fetched) {
             return reply.data;
-          } else if (response["message"] === "login unsuccess") {
-            alert("Incorrect Password");
-          } else if (response["message"] === "No user found") {
-            alert("No such User Registered");
           }
         });
+      } else if (response["message"] === "login unsuccess") {
+        alert("Incorrect Password");
+      } else if (response["message"] === "No user found") {
+        alert("No such User Registered");
+      } else {
+        return 1;
       }
     })
     .catch((error) => console.log(error));
