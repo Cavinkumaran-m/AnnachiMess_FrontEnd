@@ -7,11 +7,9 @@ const Order = (props) => {
   let dispatch = useDispatch();
   const addItem = () => {
     dispatch(incrementOrder(props.name));
-    // Cartctx.incOrder(props.name);
   };
   const removeItem = () => {
     dispatch(decrementOrder(props.name));
-    // Cartctx.removeOrder(props.name);
   };
   return (
     <div className={style.item_cont}>

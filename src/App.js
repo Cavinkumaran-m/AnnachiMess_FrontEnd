@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import CartProvider from "./Context/CartProvider";
 import Navbar from "./Components/navbar/Navbar";
 import InfoCard from "./Components/info_Card";
 import Menu from "./Components/menu/Menu";
@@ -15,7 +14,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   let loggedInStatus = useSelector((store) => store.loggedIn);
   const [cartStatus, changeCartStatus] = useState(false);
-  // const [loggedIn, changeLoggedIn] = useState(loggedInStatus);
   useEffect(() => {
     document.title = "Annachi Mess";
     console.log("Api address : " + api);
@@ -30,10 +28,7 @@ function App() {
   return (
     <>
       <div className={styles.main}>
-        {/* <Navbar cart_ch={changeCartStatus} logged={loggedInStatus}></Navbar> */}
         <InfoCard></InfoCard>
-        {/* {loggedIn && <Menu></Menu>}
-        {!loggedIn && <SignIn></SignIn>} */}
         <BrowserRouter>
           <Navbar cart_ch={changeCartStatus} logged={loggedInStatus}></Navbar>
           <Routes>

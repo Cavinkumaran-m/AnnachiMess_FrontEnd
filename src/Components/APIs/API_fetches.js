@@ -104,8 +104,6 @@ const fetchGetData = async () => {
       console.log(error);
       return { fetched: false };
     });
-  //   console.log(reply);
-  //   return reply;
 };
 
 const fetchRegister = async (emailVal, passwordVal) => {

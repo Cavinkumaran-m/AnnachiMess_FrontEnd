@@ -71,7 +71,6 @@ function StoreReducer(state = intitialState, action) {
     }
   } else if (action.type === "dec") {
     for (let i = 0; i < state.orders.length; i++) {
-      // console.log(state.orders[i]["name"] + " " + action.item);
       if (state.orders[i]["name"] === action.item) {
         if (state.orders[i]["quantity"] > 1) {
           state.orders[i]["quantity"] =

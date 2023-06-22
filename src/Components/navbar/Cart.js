@@ -8,11 +8,9 @@ import { useSelector } from "react-redux";
 const Cart = (props) => {
   let items = useSelector((Store) => Store);
   const [btnAnime, setBtnAnime] = useState(true);
-  // console.log(items);
   const butt_classes = `${style.butt_cont} ${btnAnime ? style.bump : ""}`;
 
   useEffect(() => {
-    // console.log("use effect");
     if (items.length === 0) {
       return;
     }

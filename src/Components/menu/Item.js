@@ -16,9 +16,7 @@ const Item = (props) => {
         price: props.price,
       })
     );
-    // dispatch(addOrder());
   };
-  // console.log(Order_list);
   return (
     <React.Fragment>
       <div className={style.item_cont}>

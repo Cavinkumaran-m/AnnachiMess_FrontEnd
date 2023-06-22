@@ -55,41 +55,6 @@ const SignIn = () => {
         navigate("/home");
       }
     });
-
-    // fetch(apiLogin, {
-    //   method: "POST",
-    //   headers: { "content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     email: emailVal,
-    //     password: passwordVal,
-    //   }),
-    //   credentials: "include",
-    // })
-    //   .then((response) => response.json())
-    //   .then((response) => {
-    //     if (response["message"] === "login success") {
-    //       fetch(apigetData, { credentials: "include" })
-    //         .then((res) => {
-    //           return res.json();
-    //         })
-    //         .then((parsedData) => {
-    //           // console.log(parsedData);
-    //           dispatch(
-    //             logIn(
-    //               parsedData["orders"],
-    //               parsedData["totalAmount"],
-    //               parsedData["totalItems"]
-    //             )
-    //           );
-    //           navigate("/home");
-    //         });
-    //     } else if (response["message"] === "login unsuccess") {
-    //       alert("Incorrect Password");
-    //     } else if (response["message"] === "No user found") {
-    //       alert("No such User Registered");
-    //     }
-    //   })
-    //   .catch((error) => console.log(error));
   }
 
   return (
