@@ -14,6 +14,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   let loggedInStatus = useSelector((store) => store.loggedIn);
   const [cartStatus, changeCartStatus] = useState(false);
+  if (loggedInStatus == false) {
+    if (cartStatus === true) {
+      changeCartStatus(false);
+    }
+  }
   useEffect(() => {
     document.title = "Annachi Mess";
     console.log("Api address : " + api);

@@ -10,6 +10,10 @@ const apigetData = api + "/getData";
 const apiRegister = api + "/register";
 
 const fetchUpdateOrder = async (Orders, totalAmount, totalItems) => {
+  if (Orders.length === 0) {
+    alert("No Items have been selected");
+    return true;
+  }
   return fetch(apiUpdateOrder, {
     credentials: "include",
     method: "POST",
