@@ -36,8 +36,8 @@ function App() {
             <Route path="/home" Component={Menu}></Route>
             <Route path="*" Component={SignIn}></Route>
           </Routes>
+          {cartStatus && <Mycart cart_ch={changeCartStatus}></Mycart>}
         </BrowserRouter>
-        {cartStatus && <Mycart cart_ch={changeCartStatus}></Mycart>}
         <hr style={{ color: "transparent", border: "0" }}></hr>
       </div>
 

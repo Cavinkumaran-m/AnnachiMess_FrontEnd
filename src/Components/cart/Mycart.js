@@ -3,17 +3,27 @@ import Order from "./Order";
 import style from "./Mycart.module.css";
 import { useSelector } from "react-redux";
 import { fetchUpdateOrder } from "../APIs/API_fetches";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../Store/Action";
 
 const Mycart = (props) => {
   let Orders = useSelector((Store) => Store.orders);
+  let dispatch = useDispatch();
   let totalAmount = useSelector((Store) => Store.totalAmount);
   let totalItems = useSelector((Store) => Store.totalItems);
+  let navigate = useNavigate();
   const Onclick = () => {
     props.cart_ch(false);
   };
 
   const UpdateOrders = () => {
-    fetchUpdateOrder(Orders, totalAmount, totalItems);
+    fetchUpdateOrder(Orders, totalAmount, totalItems).then((res) => {
+      if (!res) {
+        navigate("/");
+        dispatch(logOut());
+      }
+    });
   };
   return (
     <React.Fragment>

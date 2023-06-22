@@ -24,6 +24,10 @@ const fetchUpdateOrder = async (Orders, totalAmount, totalItems) => {
     .then((res) => {
       if (res["message"] === "success") {
         alert("Your order has been placed successfully");
+        return true;
+      } else if (res["message"] === "session expired") {
+        alert("Your session has been expired. Please log in again");
+        return false;
       }
     });
 };
