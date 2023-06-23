@@ -50,7 +50,7 @@ const SignIn = () => {
     let emailVal = document.getElementById("_mail").value;
     let passwordVal = document.getElementById("_pwd").value;
     fetchLogInPost(emailVal, passwordVal).then((reply) => {
-      if (reply != undefined) {
+      if (reply !== undefined) {
         dispatch(logIn(reply[0], reply[1], reply[2]));
         navigate("/home");
       }

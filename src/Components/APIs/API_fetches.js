@@ -1,6 +1,3 @@
-import { logOut, logIn } from "../../Store/Action";
-import { useDispatch } from "react-redux";
-
 // const api = "http://annachimesswebapp.azurewebsites.net";
 const api = "http://localhost:80";
 const apiUpdateOrder = api + "/updateOrder";
